@@ -1,8 +1,8 @@
-from ..app import db
+from ..config.database import db
 
 
 class Task(db.Model):
-    __tablename__ = "TASK"
+    __tablename__ = "task"
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(70), unique=True)
     description = db.Column(db.String(100))

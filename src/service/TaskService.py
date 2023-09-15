@@ -1,8 +1,8 @@
 from flask import request, jsonify
 
-from ..app import db
+from ..config.database import db
 from ..models.TaskModel import Task
-from ..schemas import TaskSchema
+from ..schemas.TaskSchema import task_schema
 
 
 def create_task():
@@ -11,19 +11,18 @@ def create_task():
     new_task = Task(title, description)
     db.session.add(new_task)
     db.session.commit()
-    return TaskSchema.jsonify(new_task)
+    return task_schema.jsonify(new_task)
 
 
 def get_tasks():
-    print("get_tasks")
     all_tasks = Task.query.all()
-    result = TaskSchema.dump(all_tasks)
+    result = task_schema.dump(all_tasks)
     return jsonify(result)
 
 
 def get_task(id):
     task = Task.query.get(id)
-    return TaskSchema.jsonify(task)
+    return task_schema.jsonify(task)
 
 
 def update_task(id):
@@ -33,11 +32,11 @@ def update_task(id):
     task.title = title
     task.description = description
     db.session.commit()
-    return TaskSchema.jsonify(task)
+    return task_schema.jsonify(task)
 
 
 def delete_task(id):
     task = Task.query.get(id)
     db.session.delete(task)
     db.session.commit()
-    return TaskSchema.jsonify(task)
+    return task_schema.jsonify(task)

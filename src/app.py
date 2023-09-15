@@ -1,16 +1,16 @@
 from flask import Flask
-from flask_marshmallow import Marshmallow
-from flask_sqlalchemy import SQLAlchemy
 
-from routes.TaskRoute import task
 from src.config import config
+from src.config.database import db
+from src.routes.TaskRoute import task
+from src.schemas.TaskSchema import ma
 
 app = Flask(__name__)
 app.config.from_object(config)
-db = SQLAlchemy(app)
-ma = Marshmallow(app)
-# db.create_all()
-app.register_blueprint(task, url_prefix='/tasks')
+
+app.register_blueprint(task, url_prefix='/tasks/')
+db.init_app(app)
+ma.init_app(app)
 
 if __name__ == "__main__":
     app.run()
