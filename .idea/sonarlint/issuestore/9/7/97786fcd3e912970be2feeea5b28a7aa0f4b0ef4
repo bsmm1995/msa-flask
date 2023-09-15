@@ -1,0 +1,8 @@
+
+jpython:S116ä"MRename this field "Table" to match the regular expression ^[_a-z][_a-z0-9]*$.(¬ÙÀŸüÿÿÿÿ
+jpython:S116³"MRename this field "Query" to match the regular expression ^[_a-z][_a-z0-9]*$.(•ÞÔ¥úÿÿÿÿ
+epython:S116ô"MRename this field "Model" to match the regular expression ^[_a-z][_a-z0-9]*$.(È²«ý
+rpython:S3776£"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(‚¾™Çúÿÿÿÿ
+mpython:S3776À"TRefactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.(Œ—ÔÚ
+Ipython:S1172†"+Remove the unused function parameter "app".(üúÅãøÿÿÿÿ
+Npython:S1172†"0Remove the unused function parameter "bind_key".(üúÅãøÿÿÿÿ
