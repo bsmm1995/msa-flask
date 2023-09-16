@@ -1,4 +1,5 @@
 from flask import Blueprint
+from flask import Response
 
 from ..service.TaskService import create_task, get_tasks, get_task, update_task, delete_task
 
@@ -7,7 +8,9 @@ task = Blueprint('task', __name__)
 
 @task.route('', methods=['POST'])
 def create():
-    return create_task()
+    response = create_task()
+    response.status = 201
+    return response
 
 
 @task.route('', methods=['GET'])
@@ -27,4 +30,4 @@ def update(id):
 
 @task.route('/<id>', methods=['DELETE'])
 def delete_by_id(id):
-    return delete_task(id)
+    return Response(delete_task(id), 204)
