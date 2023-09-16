@@ -1,4 +1,4 @@
 # Conexion a la base de datos
-SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://rootprocesott:Db4free_2020@db4free.net:3306/testbsmm'
+SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:123456@localhost:3306/api_task'
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 DEBUG = True

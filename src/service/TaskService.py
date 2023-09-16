@@ -2,7 +2,7 @@ from flask import request, jsonify
 
 from ..config.database import db
 from ..models.TaskModel import Task
-from ..schemas.TaskSchema import task_schema
+from ..schemas.TaskSchema import task_schema, tasks_schema
 
 
 def create_task():
@@ -16,7 +16,7 @@ def create_task():
 
 def get_tasks():
     all_tasks = Task.query.all()
-    result = task_schema.dump(all_tasks)
+    result = tasks_schema.dump(all_tasks)
     return jsonify(result)
 
 
@@ -26,13 +26,11 @@ def get_task(id):
 
 
 def update_task(id):
-    task = Task.query.get(id)
-    title = request.json['title']
-    description = request.json['description']
-    task.title = title
-    task.description = description
+    task_updated = Task.query.get(id)
+    task_updated.title = request.json['title']
+    task_updated.description = request.json['description']
     db.session.commit()
-    return task_schema.jsonify(task)
+    return task_schema.jsonify(task_updated)
 
 
 def delete_task(id):
