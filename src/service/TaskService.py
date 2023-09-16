@@ -1,6 +1,6 @@
 from urllib.error import HTTPError
 
-from flask import request
+from flask import request, current_app
 
 from ..config.database import db
 from ..models.TaskModel import Task
@@ -23,6 +23,7 @@ def get_tasks():
 
 
 def get_task(id):
+    current_app.logger.info("Obtener una tarea por su id. Id = {}", id)
     task = get_task_by_id(id)
     return task_schema.jsonify(task)
 

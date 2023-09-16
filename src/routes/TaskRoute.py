@@ -1,5 +1,4 @@
-from flask import Blueprint
-from flask import Response
+from flask import Blueprint, Response, current_app
 
 from ..service.TaskService import create_task, get_tasks, get_task, update_task, delete_task
 
@@ -15,6 +14,7 @@ def create():
 
 @task.route('', methods=['GET'])
 def get_all():
+    current_app.logger.info("API: Obtener todas las tareas.")
     return get_tasks()
 
 
