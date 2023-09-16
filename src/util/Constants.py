@@ -1,0 +1,1 @@
+RECORD_NOT_FOUND = "No existe el registro con ID {0}"
